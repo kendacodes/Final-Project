@@ -4,7 +4,7 @@
   margin: 0;
   text-align: center;
   font-family: 'Spectral', serif;
-  color: #E1E6E1;
+  color: #808F87;
   /* background-color: #E1E6E1; */
 }
 
@@ -21,15 +21,18 @@ header{
 }
 h1{
   font-size: 105px;
-  margin-top: 16%;
+  margin-top: -8%;
+  margin-left: 1%;
+  padding-top: 221px;
   -webkit-text-stroke-width: 1px;
- -webkit-text-stroke-color: #808F87;
+ -webkit-text-stroke-color: #E1E6E1;
 }
-img{
+.logo{
   height: 130px;
   float: left;
 }
 nav{
+  padding-top: 16px;
   margin-left: 60%;
 }
 
@@ -59,7 +62,7 @@ li:last-of-type{
 button{
   background-color: #afd0bf;
   color: #E1E6E1;
-  border: 2px solid white; /* Green */
+  border: 2px solid white;
 }
 section{
   width: 83.7%;
@@ -74,26 +77,7 @@ footer{
   margin-left: 7%;
   clear: both;
 }
-section.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
 
-section.gallery:hover {
-  border: 1px solid #777;
-}
-
-section.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-section.desc {
-  padding: 15px;
-  text-align: center;
-}
 
 .heroMain{
   background-color: white;
@@ -105,8 +89,10 @@ section.desc {
   float: left;
 }
 
-
-
+/*----------- SIGN-UP PAGE---------------- */
+.join{
+  padding-top: 185px;
+}
 
  /* body{
   margin: 0;

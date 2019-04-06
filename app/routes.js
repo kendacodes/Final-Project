@@ -18,6 +18,28 @@ module.exports = function(app, passport, db) {
         })
     });
 
+    // GALLERY SECTION =========================
+    app.get('/gallery', function(req, res) {
+        db.collection('art').find().toArray((err, result) => {
+          if (err) return console.log(err)
+          res.render('gallery.ejs', {
+            user : req.user,
+            messages: result
+          })
+        })
+    });
+
+    // UPLOAD SECTION =========================
+    app.get('/upload', function(req, res) {
+        db.collection('art').find().toArray((err, result) => {
+          if (err) return console.log(err)
+          res.render('upload.ejs', {
+            user : req.user,
+            messages: result
+          })
+        })
+    });
+
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
         req.logout();
@@ -27,7 +49,7 @@ module.exports = function(app, passport, db) {
 // message board routes ===============================================================
 
     app.post('/creation', (req, res) => {
-      db.collection('art').save({name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown:0}, (err, result) => {
+      db.collection('art').save({name: req.body.name, msg: req.body.msg, likes: 0, }, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
         res.redirect('/profile')
@@ -38,7 +60,7 @@ module.exports = function(app, passport, db) {
       db.collection('art')
       .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
         $set: {
-          thumbUp:req.body.thumbUp + 1
+          likes:req.body.likes + 1
         }
       }, {
         sort: {_id: -1},
