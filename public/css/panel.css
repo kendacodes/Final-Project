@@ -1,0 +1,9 @@
+.panel{
+  /* adds flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.panel h3{
+  font-family: sans-serif;
+}

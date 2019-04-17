@@ -1,53 +1,133 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
-  <meta name="veiwport" content="width=device-width initial-scaled=1">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Muli|Spectral+SC" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="../css/style.css">
-  <title>VIA Studios</title>
-  <link rel="shortcut icon" href="../public/media/favicon.ico">
-
+  <link href="https://fonts.googleapis.com/css?family=Buda:300|Josefin+Slab:400,700|Poiret+One" rel="stylesheet">
+  <link rel="stylesheet" href="../css/profile.css">
+  <title>Profile Page</title>
 </head>
-
 <body>
   <header>
-    <img class="logo" src="../media/studiosVia.png" alt="">
-    <nav>
       <ul>
-        <li>
-          <a href="/login">LOG-IN
-            <i class="fas fa-angle-down"></i>
-          </a>
-        </li>
-        <li>
-          <a href="/signup">SIGN-UP</a>
-        </li>
-        <li>
-          <a href="/gallery">GALLERY</a>
-        </li>
-        <li>
-          <button type="button" name="button">
-            <a href="/upload">UPLOAD</a>
-          </button>
-        </li>
-        <li>
-          <i class="fas fa-bars"></i>
-        </li>
+        <li><img class="icon" src="../media/VIcon.png" alt=""></li>
+        <li class="line"></li>
+        <li><h1> VIA VAULT</h1></li>
       </ul>
-    </nav>
+      <% if (user.local.email) { %>
+      <form class="uploadWork" action="/creations" method="post" enctype="multipart/form-data">
+        <input type="file" name="artWork" placeholder="Upload">
+        <input type="text" name="caption" >
+        <button type="submit" name="upload">UPLOAD</button>
+      </form>
+      <% } %>
+      <nav>
+        <ul>
+          <li>
+            <a href="/gallery">
+              <img class="iconVault" src="../media/iconVault.png">
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="far fa-comments"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="far fa-user"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
   </header>
-  <section class="heroMain">
-    <h1>Welcome to Virtual Interactive Art Studios</h1>
+  <section class="well">
+  <h3><span class="fa fa-user"></span> Local</h3>
+  <% if (user.local.email) { %>
+  <p>
+    <strong>id</strong>: <%= user._id %><br>
+    <strong>email</strong>: <%= user.local.email %><br>
+    <strong>password</strong>: <%= user.local.password %>
+  </p>
+  <a href="/unlink/local" class="btn btn-default">Unlink</a>
+  <% } else { %>
+  <a href="/connect/local" class="btn btn-default">Connect Local</a>
+  <% } %>
+  </section>
+  <%  profile.find(function(element){
+    console.log();
+  })
+  %>
+  <section class="main" >
+    <section class="profile">
+        <ul>
+          <% if (user.local.email) { %>
+          <% for(var i=0; i<profile.length; i++) {%>
+          <li id="<%= profile[i]._id %>" class="profiles">
+            <li>
+              <h1><img class="proPic" src="<%= profile[i].profilePic%>"></h1>
+            </li>
+          <li>
+            <p><%= profile[i].firstName%></p>
+            <p><%= profile[i].lastName%></p>
+          </li>
+          <li>
+            <span><%= profile[i].tagLine%></span>
+          </li>
+          <li>
+            <span><%= profile[i].city%></span>
+            <span><%= profile[i].state%></span>
+          </li>
+          <li>
+            <span><%= profile[i].email %></span>
+          </li>
+          <li>
+            <span> <a href="<%= profile[i].twitter %>"><i class="fab fa-twitter"></i></a></span>
+          </li>
+          <li>
+            <span> <a href="<%= profile[i].instagram %>"><i class="fab fa-instagram"></i></a></span>
+          </li>
+          <li>
+            <span> <a href="<%= profile[i].web %>"><i class="fas fa-globe"></i></a></span>
+          </li>
+          <li>
+            <a id="edit" href="/editProfile">edit</a>
+          </li>
+        </ul>
+        <% } %>
+      <% } %>
+    </section>
+    <section class ="work">
+      <% if (user.local.email) { %>
+      <% for(var i=0; i<work.length; i++) {%>
+        <span id="<%= work[i]._id %>" class="works"></span>
+        <section class="row gallery">
+          <section class="column">
+            <section class="content">
+              <img src="<%= work[i].artWork%>" style="height: 50%;">
+              <p class="descripton"><%= work[i].caption%></p>
+              <section class="dropDown">
+                <button class="dropBtn"type="button" name="button"><i class="fas fa-ellipsis-h"></i></button>
+                <section class="dropContent">
+                  <a href="/form-edit">Edit</a>
+                  <i class="fas fa-trash"></i>
+                </section>
+              </section>
+
+            </section>
+          </section>
+        </section>
+      <% } %>
+      <% } %>
+    </section>
   </section>
   <footer>
-    <p><a href="/signup">Join</a> our community of Artist</p>
+    <section>
+      <span><a href="/about">ABOUT</a></span>
+      <span><a href="/signup">JOIN THE COMMUNITY</a></span>
+      <span>© 2019 VIA STUDIOS</span>
+    </section>
   </footer>
-  <script src="js/main.js" type="text/javascript">
-  </script>
+<script type="text/javascript" src="../js/main.js"></script>
 </body>
-
 </html>

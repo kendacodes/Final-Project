@@ -1,0 +1,272 @@
+/* <------------RESET---------------> */
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+
+/* ------------REGULAR CSS--------- */
+
+*{
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #C2C2C2;
+}
+.well{
+  display: none;
+}
+
+header{
+  width: 100%;
+  height: 70px;
+  background-color: #f9f9f980;
+  font-family: 'Poiret One', cursive;
+
+}
+
+ul li{
+  display: inline-block;
+  float: left;
+  margin: 15px;
+  text-align: center;
+}
+.uploadWork{
+  margin: 17px;
+  float: left;
+  margin-left: 20%;
+}
+input{
+  background: #F6F6F5;
+  width: 210px;
+  height: 27px;
+  font-size: 16px;
+}
+.line{
+  background-color: #C2C2C2;
+  height: 42px;
+  margin: 15px;
+  width: 1px;
+}
+nav{
+  margin-left: 75%;
+}
+
+.main{
+	height:500px;
+  background: #F6F6F5;
+	padding-top: 30px;
+}
+
+span{
+  margin-left: 5%;
+}
+i{
+  font-size: -webkit-xxx-large;
+}
+.icon{
+  margin-top: -8px;
+  margin-left: 41%;
+  height: 54px;
+  padding: 5px;
+  /* position:relative;
+  top: 0px; */
+}
+.iconVault{
+  height: 54px;
+  /* position:relative;
+  top: 0px; */
+}
+
+.icon:hover{
+  -webkit-animation: spin 5s infinite;
+  animation: spin 5s infinite;
+}
+
+@-webkit-keyframes spin{
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(-360deg);
+  }
+}
+
+@keyframes spin{
+  from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+  }
+}
+
+.profile {
+  width: 25%;
+  height: 450px;
+	margin-left: 5%;
+	border: 2px solid black;
+  background: #F6F6F5;
+  box-shadow: -7px 3px 17px 0 #171616;
+  border-radius: 3px;
+  letter-spacing: 2px;
+  line-height: 38px;
+
+}
+.work{
+  margin-top: -450px;
+  margin-left: 35%;
+	height:450px;
+  border: 2px solid green;
+}
+.info{
+  width: 80%;
+  margin-left: 10%;
+  text-align: center;
+  line-height: 46px;
+}
+.gallery{
+	width: 50%;
+	height: 100%;
+	background: #F6F6F5;
+	box-shadow: -7px 3px 17px 0 #171616;
+	border-radius: 3px;
+	letter-spacing: 2px;
+	line-height: 38px;
+	text-align: center;
+}
+
+/* .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+} */
+
+/* .title {
+  color: grey;
+  font-size: 18px;
+} */
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #717171;
+  text-align: center;
+  cursor: pointer;
+  width: 20%;
+  font-size: 18px;
+}
+.fas{
+	font-size: 20px;
+}
+/* a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+} */
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+img{
+	height: 150px;
+}
+footer{
+  height: 60px;
+  background-color: #f9f9f980;
+  border-top: 1px solid  #d3d3d3;
+  clear: both;
+}
+footer>section{
+	text-align: center;
+  margin-top: 20px;
+  width: 100%;
+  height: 30px;
+  clear: both;
+
+}
+.dropDown {
+  overflow: hidden;
+}
+
+.dropDown .dropBtn {
+	font-weight: normal;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+ a:hover, .dropDown:hover .dropBtn {
+  background-color: red;
+}
+
+.dropContent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropContent a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropContent a:hover {
+  background-color: #ddd;
+}
+
+.dropDown:hover .dropContent {
+  display: block;
+}

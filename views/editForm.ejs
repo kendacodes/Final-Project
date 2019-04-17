@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <section>
+      Profile Picture:<input enctype="multipart/form-data" type="file"id="profilePic" value=<%= profile.profilePic %>>
+      <br>
+      First Name:<input type="text" id="firstName" value=<%= profile.firstName %>>
+      <br>
+      Last Name: <input type="text" id="lastName"  value=<%= profile.lastName %> >
+      <br>
+      Email: <input readonly type="text" id="email"  value=<%= user.local.email %> >
+      <br>
+      Tag Line: <input type="text" id="tagLine" value=<%= profile.tagLine %> >
+      <br>
+      Twitter: <input type="url" id="twitter"value=<%= profile.twitter%> >
+      <br>
+      Instagram: <input type="url" id="instagram" value=<%= profile.instagram %> >
+      <br>
+      City:  <input type="text" id="city" value=<%= profile.city %> >
+      <br>
+      State: <input type="text" id="state" value=<%= profile.state %> >
+      <br>
+      Website/Portfolio: <input type="url" id="web" value=<%= profile.web %>>
+      <br>
+      <input type="text" id="_id" value=<%= profile._id %>>
+      <button id="update" type="button" name="button">update</button>
+    </section>
+    <script type="text/javascript" src="../js/main.js"></script>
+  </body>
+</html>

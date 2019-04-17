@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6, p{
 }
 
 header{
-  background-color: #afd0bf;
+  background-color: #d4cecb;
   height: 80px;
   width: 83.7%;
   margin-left: 7%;
@@ -54,26 +54,21 @@ li a {
   text-decoration: none;
 }
 li a:hover, button:hover{
-  background-color: #808F87;
+  background-color: #fefefe;
 }
 li:last-of-type{
   display: none;
 }
-button{
-  background-color: #afd0bf;
-  color: #E1E6E1;
-  border: 2px solid white;
-}
 
 footer{
-  background-color: #afd0bf;
+  background-color: #d4cecb;
   height: 80px;
   width: 83.7%;
   margin-left: 7%;
   clear: both;
 }
 .mainGallery{
-    height: 350px;
+    height: 600px;
     width: 100%;
     border: 2px solid green;
 }
@@ -82,10 +77,11 @@ footer{
   position: relative;
   right: 164px;
   /* width: 196px; */
-  margin-left: 22px;
+
   border: 1px solid #ccc;
   float: left;
   width: 15%;
+  margin-left: 200px;
 
 }
 
@@ -96,6 +92,7 @@ footer{
 .gallery img {
   width: 100%;
   height: auto;
+
 }
 
 section.desc {

@@ -1,263 +1,167 @@
+@import url("typography.css");
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+
+
+
+
+}
+/* ------------ REGULAR CSS-------------------- */
+
 *{
   box-sizing: border-box;
-  list-style: none;
-  margin: 0;
-  text-align: center;
-  font-family: 'Spectral', serif;
-  color: #808F87;
-  /* background-color: #E1E6E1; */
-}
-
-h1, h2, h3, h4, h5, h6, p{
-  margin-top: 0;
-  font-family:'Montserrat', sans-serif;
-}
-
-header{
-  background-color: #afd0bf;
-  height: 80px;
-  width: 83.7%;
-  margin-left: 7%;
-}
-h1{
-  font-size: 105px;
-  margin-top: -8%;
-  margin-left: 1%;
-  padding-top: 221px;
-  -webkit-text-stroke-width: 1px;
- -webkit-text-stroke-color: #E1E6E1;
-}
-.logo{
-  height: 130px;
-  float: left;
-}
-nav{
-  padding-top: 16px;
-  margin-left: 60%;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
+  margin:0;
   padding: 0;
-  overflow: hidden;
-  /* background-color: #7A9E9F; */
+  text-decoration: none;
+  color: #C2C2C2;
+  list-style: none;
+
 }
-li{
+nav, ul, li{
   float: left;
 }
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-li a:hover, button:hover{
-  background-color: #808F87;
-}
-li:last-of-type{
-  display: none;
-}
-button{
-  background-color: #afd0bf;
-  color: #E1E6E1;
-  border: 2px solid white;
-}
+
 section{
-  width: 83.7%;
-  height: 750px;
-  margin: 0 0% 0 7%;
-  background-color: #afd0bf;
+  width: 50%;
+  height: 660px;
+  background-color: #d4cecb;
+  float:left;
+  text-align: center;
+}
+
+section:last-of-type{
+  background-color: #f4f4f500;
+}
+section>section{
+  width: 438px;
+  height: 400px;
+  padding: 30px;
+  position: relative;
+  left: 20%;
+  top: 55px;
+  /* margin: 122px; */
+  display: inline-block;
+  background: #F6F6F5;
+  box-shadow: -7px 3px 17px 0 #171616;
+  border-radius: 3px;
+  letter-spacing: 2px;
+  line-height: 38px;
+}
+form{
+
 }
 footer{
-  background-color: #afd0bf;
-  height: 80px;
-  width: 83.7%;
-  margin-left: 7%;
+  height: 60px;
+  background-color: #f9f9f980;
+  border-top: 1px solid  #d3d3d3;
   clear: both;
 }
-
-
-.heroMain{
-  background-color: white;
-  background-image: url(../media/face.gif);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 31.8%;
-  /* background-color: #808F87; */
-  float: left;
+footer>section{
+  margin-left: 10%;
+  margin-top: 20px;
+  width: 100%;
+  height: 30px;
+}
+span{
+  margin-left: 5%;
+}
+p{
+  font-size: 20px;
+  color: white;
+}
+h1, h2{
+  font-family: 'Poiret One', cursive;
+  color: #ffffff;
+  /* color: #F6F6F5; */
+  /* text-shadow: 1px 1px 20px #915f6d, 0 0 25px #EFDECD, 0 0 41px #ffffff; */
+  text-shadow: 1px 1px 2px #EFDECD, 0 0 25px #915F6D, 0 0 10px #ffffff;
+  font-size: 69px;
+  position: relative;
+  top: 27px;
+}
+.first{
+  /* font-family: 'Poiret One', cursive;
+  color: #ffffff;
+  text-shadow: 1px 1px 20px #915f6d, 0 0 25px #EFDECD, 0 0 41px #ffffff;
+  font-size: 69px; */
+  text-align: right;
+  /* position: relative;
+  top: 27px; */
+}
+.fa-chrome{
+    font-size: 100px;
+    color: white;
+    outline-color: black;
+}
+.icon{
+text-align: center;
+  /* position:relative;
+  top: 0px; */
+}
+.iconVault{
+  height: 54px;
+  /* position:relative;
+  top: 0px; */
 }
 
-/*----------- SIGN-UP PAGE---------------- */
-.join{
-  padding-top: 185px;
+.icon:hover{
+  -webkit-animation: spin 5s infinite;
+  animation: spin 5s infinite;
 }
 
- /* body{
-  margin: 0;
-  padding: 0;
-
-}
-header{
-  text-align: center;
-  background-color: #d3AB9E;
-  height: 42px;
-  margin: 0;
-  padding: 0;
-}
-section{
-  background-color: #53131e;
-}
-nav{
-  background-color: black;
-  margin-left: 64%;
-}
-nav ul li{
-  float: left;
-  padding-right: 5%;
-} */
-/* .fa-bars{
-  display: none;
-}
-
-img{
-  height: 264px;
-  margin-left: 35%;
-  margin-top: 0;
-}
-
-section img{
-  height: 150px;
-  margin: 0;
-}
-.main{
-  border: 2px solid black;
-  width: 50%;
-  float: left;
-  height: auto;
-  text-align: center;
-} */
-/* .right section{
-  border: 2px solid green;
-  width: 50%;
-  margin: 10%;
-  margin-left: 25%;
-
-}
-iframe{
-  margin-top: 80px;
-} */
-
- The dropdown container
-/* .dropdown {
-  float: left;
-  overflow: hidden;
-} */
-
-/* Dropdown button */
-/* .dropdown .dropbtn {
-  font-size: inherit;
-  border: none;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
-} */
-
-/* Add a red background color to navbar links on hover */
-/* nav ul li:hover, .dropdown:hover, .dropbtn {
-  background-color: #1f2456;
-} */
-
-/* Dropdown content (hidden by default) */
-/* .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-} */
-
-/* Links inside the dropdown */
-/* .dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-} */
-
-/* Add a grey background color to dropdown links on hover */
-/* .dropdown-content a:hover {
-  background-color: #ddd;
-} */
-
-/* Show the dropdown menu on hover */
-/* .dropdown:hover .dropdown-content {
-  display: block;
-} */
-
-
-/* Media Queries  */
-
-/* @media only screen and (max-width:768px) {
-  section{
-    background: crimson;
-    width: 100%;
-    float: none;
+@-webkit-keyframes spin{
+  from {
+    -webkit-transform: rotateY(0deg);
   }
-  section section{
-    width:100%;
-    float: none;
-
-  }
-  .main{
-    width: 100%;
-    float: none;
-  }
-
-  li {
-    display: none;
-  }
-
-  .fa-bars {
-    display: block;
-    margin: 15px;
-    width: 9%;
-    color: #080808;
-    padding: 2px 2px 2px 2px;
-    font-size: xx-large;
-    position: absolute;
-    top: 29px;
-    right: 22px;
-  }
-
-  header {
-    background: crimson;
+  to {
+    -webkit-transform: rotateY(-360deg);
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  section {
-    background: silver;
-    width: 100%;
-    w
+@keyframes spin{
+  from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
 
-
-  header nav ul li {
-
-    width: 15%;
-    margin-left: 2%;
-    margin-top: -3px;
+  to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
   }
 }
-
-@media (min-width:1025px) and (max-width: 2000px){
-  section{
-    background: gold;
-  }
-
-} */

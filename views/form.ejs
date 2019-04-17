@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>QUESTIONAIRE</title>
+    <link rel="stylesheet" href="../css/profile.css">
+  </head>
+  <body>
+    <% if (user.local.email) { %>
+    <form class="info" action="/info" method="post" enctype="multipart/form-data">
+      <fieldset>
+        <legend>Personal Information</legend>
+          Profile Picture:<input type="file" name="profilePic"><br>
+          First Name:<input type="text" name="firstName" <%= user.local.email %>"><br>
+          Last Name: <input type="text" name="lastName"  ><br>
+          Tag Line: <input type="text" name="tagLine"  ><br>
+          Twitter: <input type="url" name="twitter" ><br>
+          Instagram: <input type="url" name="instagram"  ><br>
+          City:  <input type="text" name="city"  ><br>
+          State: <input type="text" name="state"  ><br>
+          Website/Portfolio: <input type="url" name="web" ><br>
+      <button type="submit" class="frmBtn">Submit</button>
+      </fieldset>
+    </form>
+    <% } %>
+
+
+  <script src="js/main.js" type="text/javascript"></script>
+  </body>
+</html>
