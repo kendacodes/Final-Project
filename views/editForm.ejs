@@ -2,12 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Edit profile</title>
   </head>
   <body>
     <section>
-      Profile Picture:<input enctype="multipart/form-data" type="file"id="profilePic" value=<%= profile.profilePic %>>
-      <br>
       First Name:<input type="text" id="firstName" value=<%= profile.firstName %>>
       <br>
       Last Name: <input type="text" id="lastName"  value=<%= profile.lastName %> >
@@ -29,6 +27,6 @@
       <input type="text" id="_id" value=<%= profile._id %>>
       <button id="update" type="button" name="button">update</button>
     </section>
-    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/editform.js"></script>
   </body>
 </html>

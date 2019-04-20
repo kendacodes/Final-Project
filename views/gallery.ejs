@@ -7,27 +7,20 @@
 
   <link rel="stylesheet" href="../css/gallery.css">
 
-  <title>LOG-IN</title>
+  <title>GALLERY</title>
 </head>
 <body>
   <header>
-    <a href="index.ejs">
-      <img  class="logo"src="../public/media/studiosVia.png" alt="">
-    </a>
     <nav>
       <ul>
         <li>
-          <a href="/login">LOG-IN
-            <i class="fas fa-angle-down"></i>
-          </a>
-        </li>
-        <li>
-          <a href="/signup">SIGN-UP</a>
+          <a href="/index">HOME</a>
         </li>
         <li>
           <a href="/gallery">GALLERY</a>
         </li>
         <li>
+          <a href="/profile">PROFILE</a>
         </li>
         <li>
           <i class="fas fa-bars"></i>
@@ -38,16 +31,17 @@
   <section class="mainGallery">
       <% for(var i=0; i<work.length; i++) {%>
     <section class="gallery">
-        <img src="<%= work[i].artWork%>">
-        <p><%= profile[i].firstName%></p>
-        <p><%= profile[i].lastName%></p>
+      <a href="#"><img class="personalArt"src="<%= work[i].artWork%>"></a>
+      <section class="artistInfo">
+        <p><%= profile.find(p => p.email === work[i].email ).firstName%></p>
+        <p><%= profile.find(p => p.email === work[i].email).lastName%></p>
+      </section>
       <section class="desc"><%= work[i].caption%></section>
     </section>
     <% } %>
   </section>
   <footer>
-    <p><a href="#">Join</a> our community of Artist</p>
+    <p><a href="/signup">Join</a> our community of Artist</p>
   </footer>
-  <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>

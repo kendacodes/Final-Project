@@ -3,7 +3,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 438px;
+  height: 400px;
+  padding: 30px;
+  position: relative;
+  margin-left: 15%;
+  margin-top: 35px;
+  box-shadow: -7px 3px 17px 0 #171616;
+  border-radius: 3px;
+  letter-spacing: 2px;
+  line-height: 38px;
+  font-weight: bold;
 }
 .panel h3{
   font-family: sans-serif;
+}
+.panelII{
+  margin-top: 76px;
+}
+.box{
+  width: 438px;
+  height: 400px;
+  padding: 30px;
+  margin-left: 33%;
+  margin-top: 35px;
+  box-shadow: -7px 3px 17px 0 #171616;
+  border-radius: 3px;
+  letter-spacing: 2px;
+  line-height: 38px;
 }

@@ -1,45 +1,8 @@
 @import url("typography.css");
+@import "normalize.css";
+@import url("panel.css");
+@import url("color.css");
 
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-
-
-
-
-}
 /* ------------ REGULAR CSS-------------------- */
 
 *{
@@ -47,43 +10,17 @@ ol, ul {
   margin:0;
   padding: 0;
   text-decoration: none;
-  color: #C2C2C2;
+  color: #585555;
   list-style: none;
-
-}
-nav, ul, li{
-  float: left;
 }
 
 section{
   width: 50%;
-  height: 660px;
-  background-color: #d4cecb;
+  height: 600px;
   float:left;
   text-align: center;
 }
 
-section:last-of-type{
-  background-color: #f4f4f500;
-}
-section>section{
-  width: 438px;
-  height: 400px;
-  padding: 30px;
-  position: relative;
-  left: 20%;
-  top: 55px;
-  /* margin: 122px; */
-  display: inline-block;
-  background: #F6F6F5;
-  box-shadow: -7px 3px 17px 0 #171616;
-  border-radius: 3px;
-  letter-spacing: 2px;
-  line-height: 38px;
-}
-form{
-
-}
 footer{
   height: 60px;
   background-color: #f9f9f980;
@@ -91,7 +28,6 @@ footer{
   clear: both;
 }
 footer>section{
-  margin-left: 10%;
   margin-top: 20px;
   width: 100%;
   height: 30px;
@@ -100,18 +36,17 @@ span{
   margin-left: 5%;
 }
 p{
-  font-size: 20px;
   color: white;
 }
 h1, h2{
   font-family: 'Poiret One', cursive;
   color: #ffffff;
-  /* color: #F6F6F5; */
-  /* text-shadow: 1px 1px 20px #915f6d, 0 0 25px #EFDECD, 0 0 41px #ffffff; */
   text-shadow: 1px 1px 2px #EFDECD, 0 0 25px #915F6D, 0 0 10px #ffffff;
-  font-size: 69px;
   position: relative;
-  top: 27px;
+  right: 30%;
+}
+li h3 a:hover{
+  background-color: #fefefe;
 }
 .first{
   /* font-family: 'Poiret One', cursive;
