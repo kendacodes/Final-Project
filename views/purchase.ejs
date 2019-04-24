@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stripe Checkout Integration</title>
+    <link type="text/css" rel="stylesheet" href="../css/normalize.css">
+    <link rel="icon" type="image/png" sizes="96x96" href="../media/favicon.ico">
+    <link rel="stylesheet" href="../css/purchase.css">
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+  </head>
+  <body>
+    <h1>VIA Studios Checkout powered by Stripe</h1>
+
+    <div class="mainImg"id="shop">
+      <img class="collection" src="/<%= creation.artWork %>" alt="">
+      <span>$<%= creation.price%></span>
+      <button id="buttonCheckout">Checkout</button>
+    </div>
+  </body>
+
+<script type="text/javascript" src="../js/purchase.js"></script>
+</html>

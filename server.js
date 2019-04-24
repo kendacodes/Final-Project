@@ -16,7 +16,12 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');// helps manage login users section
 var multer = require('multer');
 var ObjectId = require('mongodb').ObjectID
-var configDB = require('./config/database.js');//exports and object
+var configDB = require('./config/database.js');//exports and ObjectId
+require('dotenv').config();
+const keyPublishable = process.env.PUBLISHABLE_KEY;
+const keySecret = process.env.SECRET_KEY;
+console.log('keySecret=',  keySecret);
+const stripe = require("stripe")(keySecret);
 
 var db// global variable
 
@@ -24,7 +29,7 @@ var db// global variable
 mongoose.connect(configDB.url, (err, database) => {
   if (err) return console.log(err)
   db = database
-  require('./app/routes.js')(app, passport, db,  multer, ObjectId);
+  require('./app/routes.js')(app, passport, db,  multer, ObjectId, stripe);
 }); // connect to our database
 
 //app.listen(port, () => {

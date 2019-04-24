@@ -1,3 +1,5 @@
+@import url('responsive.css');
+
 /* <------------RESET---------------> */
 
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -78,7 +80,9 @@ input{
 nav{
   margin-left: 75%;
 }
-
+header i{
+	font-size: -webkit-xxx-large;
+}
 .main{
 	height: 625px;
   background: #F6F6F5;
@@ -86,31 +90,20 @@ nav{
 }
 
 span{
-  margin-left: 5%;
+  margin-left: 3%;
 }
-i{
+/* i{
   font-size: -webkit-xxx-large;
-}
-.icon{
-  margin-top: -8px;
-  margin-left: 41%;
-  height: 54px;
-  padding: 5px;
-  /* position:relative;
-  top: 0px; */
-}
-.iconVault{
-  height: 54px;
-  /* position:relative;
-  top: 0px; */
-}
+} */
 
 .profile {
   width: 25%;
-  height: 500px;
-	margin-left: 5%;
+  height: 510px;
+	margin-left: 3%;
+	display: flex;
+	flex: auto;
   background: #F6F6F5;
-  box-shadow: -7px 3px 17px 0 #171616;
+	box-shadow: 2px 3px 6px #666;
   border-radius: 3px;
   letter-spacing: 2px;
   line-height: 38px;
@@ -119,9 +112,12 @@ i{
 }
 
 .work{
-  margin-top: -517px;
-  margin-left: 35%;
-	height: 570px;
+  margin-top: -507px;
+  margin-left: 29%;
+	height: 511px;
+	display: flex;
+	overflow: auto;
+	white-space: nowrap;
 }
 .info{
   width: 80%;
@@ -131,9 +127,9 @@ i{
 }
 .gallery{
 	width: 50%;
-	height: 90%;
+	height: 99%;
 	background: #F6F6F5;
-	box-shadow: -7px 3px 17px 0 #171616;
+	box-shadow: 2px 3px 6px #666;
 	border-radius: 3px;
 	letter-spacing: 2px;
 	line-height: 38px;
@@ -148,25 +144,22 @@ button {
   color: #585555;
   text-align: center;
   cursor: pointer;
-;
 }
- .fab .fas{
+.fab .fas{
 	font-size: 10px;
 }
 .proIcon{
 	float: left;
 	margin-left: 8%;
-	margin-top: 40px
+	margin-top: 40px;
+	font-size: -webkit-xxx-large;
+
 
 }
 .proPic{
 	width: 100%;
 }
-/* a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-} */
+
 
 .personalArt{
 	width: 100%;

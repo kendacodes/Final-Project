@@ -1,0 +1,27 @@
+/* Media Queries  */
+
+@media only screen and (max-width: 650px){
+  li{
+    display: none;
+  }
+  .hamburger{
+    width: 50px;
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 23px;
+    background: blue;
+  }
+  header + section, footer section, section {
+    width: 97%;
+  }
+}
+
+@media (min-width: 651px) and (max-width: 960px){
+  li{
+    width: 10%;
+  }
+  section{
+    width: 45%;
+  }
+}

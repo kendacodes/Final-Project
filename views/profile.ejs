@@ -2,27 +2,29 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=Buda:300|Josefin+Slab:400,700|Poiret+One" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="96x96" href="../media/favicon.ico">
   <link rel="stylesheet" href="../css/profile.css">
   <title>PROFILE</title>
 </head>
 <body>
   <header>
       <ul class="profileNav">
-        <li><h1> VIA VAULT</h1></li>
+        <li><h1> VIA STUDIOS</h1></li>
       </ul>
       <% if (user.local.email) { %>
       <form class="uploadWork" action="/creations" method="post" enctype="multipart/form-data">
         <input type="file" name="artWork" placeholder="Upload">
         <input type="text" name="caption" >
+        <input type="text" name="price" value="price">
         <button type="submit" name="upload">UPLOAD</button>
       </form>
       <% } %>
       <nav>
         <ul class="profileNav">
           <li>
-            <a href="/index">
+            <a href="/">
               <i class="fas fa-home"></i>
             </a>
           </li>
@@ -59,7 +61,7 @@
             <span><%= profile[i].city%> <%= profile[i].state%></span>
           </li>
           <li class="proIcon">
-            <span><a href="<%= profile[i].email %>"></a><i class="fas fa-envelope-open-text"></i></span>
+            <span><a href="mailto: <%= profile[i].email %>"></a><i class="fas fa-envelope-open-text"></i></span>
           </li>
           <li class="proIcon">
             <span> <a href="<%= profile[i].twitter %>"><i class="fab fa-twitter"></i></a></span>
@@ -84,7 +86,7 @@
           <section class="dropDown">
             <button class="dropBtn"type="button" name="button"><i class="fas fa-ellipsis-h"></i></button>
             <section class="dropContent">
-              <a href="/form-edit">Edit</a>
+              <span class="price"><%= work[i].price%></span>
               <i class="fas fa-trash"></i>
             </section>
           </section>

@@ -1,7 +1,8 @@
 @import url("typography.css");
-@import "normalize.css";
 @import url("panel.css");
 @import url("color.css");
+@import url('responsive.css');
+
 
 /* ------------ REGULAR CSS-------------------- */
 
@@ -16,7 +17,7 @@
 
 section{
   width: 50%;
-  height: 600px;
+  height: 675px;
   float:left;
   text-align: center;
 }
@@ -49,54 +50,10 @@ li h3 a:hover{
   background-color: #fefefe;
 }
 .first{
-  /* font-family: 'Poiret One', cursive;
-  color: #ffffff;
-  text-shadow: 1px 1px 20px #915f6d, 0 0 25px #EFDECD, 0 0 41px #ffffff;
-  font-size: 69px; */
   text-align: right;
-  /* position: relative;
-  top: 27px; */
 }
 .fa-chrome{
     font-size: 100px;
     color: white;
     outline-color: black;
-}
-.icon{
-text-align: center;
-  /* position:relative;
-  top: 0px; */
-}
-.iconVault{
-  height: 54px;
-  /* position:relative;
-  top: 0px; */
-}
-
-.icon:hover{
-  -webkit-animation: spin 5s infinite;
-  animation: spin 5s infinite;
-}
-
-@-webkit-keyframes spin{
-  from {
-    -webkit-transform: rotateY(0deg);
-  }
-  to {
-    -webkit-transform: rotateY(-360deg);
-  }
-}
-
-@keyframes spin{
-  from {
-    -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-  }
-
-  to {
-    -moz-transform: rotateY(-360deg);
-    -ms-transform: rotateY(-360deg);
-    transform: rotateY(-360deg);
-  }
 }

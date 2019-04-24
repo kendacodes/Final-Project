@@ -9,17 +9,27 @@
   position: relative;
   margin-left: 15%;
   margin-top: 35px;
-  box-shadow: -7px 3px 17px 0 #171616;
+  box-shadow: 2px 3px 6px #666;
   border-radius: 3px;
   letter-spacing: 2px;
   line-height: 38px;
   font-weight: bold;
 }
+.form{
+  width: 49%;
+  height: 532px;
+  padding: 30px;
+  margin: 35px 0 0 27%;
+  box-shadow: 2px 3px 6px #666;
+  border-radius: 3px;
+  letter-spacing: 2px;
+  line-height: 38px;
+}
 .panel h3{
   font-family: sans-serif;
 }
 .panelII{
-  margin-top: 76px;
+  margin-top: 129px;
 }
 .box{
   width: 438px;
@@ -27,7 +37,7 @@
   padding: 30px;
   margin-left: 33%;
   margin-top: 35px;
-  box-shadow: -7px 3px 17px 0 #171616;
+  box-shadow: 2px 3px 6px #666;
   border-radius: 3px;
   letter-spacing: 2px;
   line-height: 38px;

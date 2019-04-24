@@ -38,6 +38,11 @@ module.exports = function(app, passport, db, multer, ObjectId) {
     res.render('index.ejs')
   });
 
+  // ABOUT PAGE===========================
+  app.get('/about', function(req, res) {
+    res.render('about.ejs')
+  });
+
   // PROFILE SECTION =========================
   app.get('/profile', isLoggedIn, (req, res) => {
     const firstName = req.query.firstName
@@ -77,90 +82,135 @@ module.exports = function(app, passport, db, multer, ObjectId) {
 
   // Artist  SECTION =========================
   app.get('/artist', function(req, res){
-    db.collection('info').find().toArray((err, result1) => {
+    let queryParam = req.query.artistId
+    db.collection('info').findOne({email: queryParam},(err, result1) => {
       if (err) return console.log(err)
-      db.collection('creations').find().toArray((err, result) => {
+      db.collection('creations').find({email: queryParam}).toArray((err, result) => {
         if (err) return console.log(err)
         console.log("from /gallery profile:", result1, "work:", result);
-        res.render('gallery.ejs', {
+        res.render('artist.ejs', {
           user : req.user,
           profile: result1,
           work: result
         })
       })
-    });
+    })
+  })
 
-    // Form SECTION =========================
-    app.get('/form', function(req, res) {
-      console.log(req.session);
-      db.collection('info').find().toArray((err, result) => {
-        if (err) return console.log(err)
-        res.render('form.ejs', {
-          user : req.user,
-          messages: result
-        })
-      })
-    });
-
-
-    // Edit profile SECTION =========================
-    app.get('/editProfile', function(req, res) {
-      console.log(req.user)
-      db.collection('info').find().toArray((err, result) => {
-        if (err) return console.log(err)
-        const profileInfo = result.find((profile) => {
-          return profile.email == req.user.local.email
-        })
-        console.log(profileInfo)
-        res.render('editForm.ejs', {
-          user : req.user,
-          profile: profileInfo
-        })
-      })
-    });
-
-    // LOGOUT ==============================
-    app.get('/logout', function(req, res) {
-      req.logout();
-      res.redirect('/')
-    });
-
-    //===============================================================
-    //                NORMAL 'POST' ROUTES
-    //===============================================================
-
-    //===== Uploading profile pic on profile Page====
-
-    app.post('/info', upload.single('profilePic'), (req, res) => {
-      console.log("THIS IS THE FILE", req.file);
-      db.collection('info').save({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        tagLine: req.body.tagLine,
-        email: req.user.local.email,
-        twitter: req.body.twitter,
-        instagram: req.body.instagram,
-        city: req.body.city,
-        state: req.body.state,
-        web: req.body.web,
-        profilePic: "images/profile/" + req.file.filename
-      }, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-        res.redirect('profile')
+  // Form SECTION =========================
+  app.get('/form', function(req, res) {
+    console.log(req.session);
+    db.collection('info').find().toArray((err, result) => {
+      if (err) return console.log(err)
+      res.render('form.ejs', {
+        user : req.user,
+        messages: result
       })
     })
+  });
 
-    //======== uploading art work on profile Page====
 
-    app.post('/creations', upload.single('artWork'), (req, res) => {
-      console.log("THIS IS THE FILE", req.file);
-      db.collection('creations').save({email: req.user.local.email, caption: req.body.caption, artWork: "images/art/" + req.file.filename}, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-        res.redirect('profile')
+  // Edit profile SECTION =========================
+  app.get('/editProfile', function(req, res) {
+    console.log(req.user)
+    db.collection('info').find().toArray((err, result) => {
+      if (err) return console.log(err)
+      const profileInfo = result.find((profile) => {
+        return profile.email == req.user.local.email
+      })
+      console.log(profileInfo)
+      res.render('editForm.ejs', {
+        user : req.user,
+        profile: profileInfo
       })
     })
+  });
+
+  // BUY ======================
+  app.get('/purchase/:work_id', (req, res) => {
+    console.log(req.user)
+      db.collection('creations').findOne({_id:ObjectId(req.params.work_id)},(err, creation) => {
+        if (err) return console.log(err)
+        console.log("from /purchase work:", creation);
+        res.render('purchase.ejs', {
+          user : req.user,
+          creation: creation
+
+      })
+    })
+  })
+
+  // LOGOUT ==============================
+  app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/')
+  });
+
+  //===============================================================
+  //                NORMAL 'POST' ROUTES
+  //===============================================================
+
+  //===== Uploading profile pic on profile Page====
+
+  app.post('/info', upload.single('profilePic'), (req, res) => {
+    console.log("THIS IS THE FILE", req.file);
+    db.collection('info').save({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      tagLine: req.body.tagLine,
+      email: req.user.local.email,
+      twitter: req.body.twitter,
+      instagram: req.body.instagram,
+      city: req.body.city,
+      state: req.body.state,
+      web: req.body.web,
+      profilePic: "images/profile/" + req.file.filename
+    }, (err, result) => {
+      if (err) return console.log(err)
+      console.log('saved to database')
+      res.redirect('profile')
+    })
+  })
+
+  //======== uploading art work on profile Page====
+
+  app.post('/creations', upload.single('artWork'), (req, res) => {
+    console.log("THIS IS THE FILE", req.file);
+    db.collection('creations').save({email: req.user.local.email, price: req.body.price, caption: req.body.caption, artWork: "images/art/" + req.file.filename}, (err, result) => {
+      if (err) return console.log(err)
+      console.log('saved to database')
+      res.redirect('profile')
+    })
+  })
+
+  //=============Payment Routes=========================
+  app.post("/charge", (req, res) => {
+    // console.log(creationId);
+    // db.collection('info').findOne({_id:ObjectId(req.body.creationId)},(err, creation) => {
+    //   let amount = creation.price;
+    //   if (! amount ){
+    //     amount = 250
+    //   }
+    //   stripe.customers.create({
+    //     email: req.body.email,
+    //     card: req.body.id
+    //   })
+    //   .then(customer =>
+    //     stripe.charges.create({
+    //       amount,
+    //       description: req.body.artWork,
+    //       currency: "usd",
+    //       customer: customer.id
+    //     }))
+    //     .then(charge => res.send(charge))
+    //     .catch(err => {
+    //       console.log("Error:", err);
+    //       res.status(500).send({error: "Purchase Failed"});
+    //     });
+    //   });
+    res.redirect('/gallery')
+    })
+
     //===============================================================
     //                NORMAL 'PUT' ROUTES
     //===============================================================
@@ -251,12 +301,11 @@ module.exports = function(app, passport, db, multer, ObjectId) {
       });
     });
 
-  };
+    // route middleware to ensure user is logged in
+    function isLoggedIn(req, res, next) {
+      if (req.isAuthenticated())
+      return next();
 
-  // route middleware to ensure user is logged in
-  function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-    return next();
-
-    res.redirect('/');
+      res.redirect('/');
+    }
   }

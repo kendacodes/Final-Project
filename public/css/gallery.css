@@ -1,18 +1,18 @@
-
+@import url('responsive.css');
 *{
   box-sizing: border-box;
   list-style: none;
   margin: 0;
   text-align: center;
-  font-family: 'Spectral', serif;
-  color: #E1E6E1;
+  /* font-family: 'Spectral', serif; */
+  color: #585555;
   /* background-color: #E1E6E1; */
 }
 
-h1, h2, h3, h4, h5, h6, p{
+/* h1, h2, h3, h4, h5, h6, p{
   margin-top: 0;
   font-family: 'Roboto Mono', monospace;
-}
+} */
 
 header{
   background-color: #d4cecb;
@@ -55,7 +55,7 @@ li a {
   text-decoration: none;
 }
 li a:hover, button:hover{
-  background-color: #fefefe;
+  background-color:#585555;
 }
 li:last-of-type{
   display: none;
@@ -66,14 +66,15 @@ footer{
   height: 60px;
   width: 83.7%;
   margin-left: 7%;
-  clear: both;
+  margin-top: 40px;
 }
+
 .mainGallery{
-    height: 600px;
+    height: auto;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex: 1 1 0;
-    justify-content: center;
     padding-left: 17%;
     justify-content: space-around;
 
@@ -86,14 +87,9 @@ footer{
   width: 20%;
   height: 350px;
   margin-left: 4%;
-  box-shadow: -7px 3px 17px 0 #171616;
+  box-shadow: 2px 3px 6px #666;
   border-radius: 3px;
   letter-spacing: 2px;
-}
-
-}
-.artistInfo{
-  margin-top: 35px;
 }
 
 .gallery:hover {
@@ -102,14 +98,89 @@ footer{
 
 .gallery img {
   width: 100%;
-  height: auto;
+  height: 80%;
 
 }
 
 section.desc {
   color: #808F87;
   padding: 15px;
+}
+.artistInfo{
+  margin-top: 25px;
+  padding-top: 30px;
+  left: 29px;
+}
+/* <-------MODAL POPUP-------> */
 
+.box {
+  width: 72%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 3px;
+  border: 2px solid #fff;
+  text-align: center;
+  position: relative;
+  top: 17px;
+}
 
+.button {
+  font-size: .5EM;
+  padding: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  color: #d4cecb;
+  box-shadow: 0 5px 15px #895959d9;
+}
 
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: absolute;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 1px;
+  right: 4px;
+  transition: all 200ms;
+  font-size: 23px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #585555;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
 }
