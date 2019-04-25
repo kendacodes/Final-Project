@@ -16,9 +16,9 @@
       <% if (user.local.email) { %>
       <form class="uploadWork" action="/creations" method="post" enctype="multipart/form-data">
         <input type="file" name="artWork" placeholder="Upload">
-        <input type="text" name="caption" >
-        <input class="smallInput"type="text" name="price" value="price">
-        <input class="smallInput" type="text" name="size">
+        <input type="text" name="caption" placeholder="Title/Descripton">
+        <input class="smallInput"type="text" name="price" placeholder="price">
+        <input class="smallInput" type="text" name="size" placeholder="size">
         <button type="submit" name="upload">UPLOAD</button>
       </form>
       <% } %>
