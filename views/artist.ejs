@@ -33,20 +33,37 @@
       <section class="mainImg">
         <img data-email="" src="" id="pic" alt="">
         <% console.log('FROM ARTIST.EJS', work) %>
-        <span><%= profile.firstName %></span>
-        <span><%= profile.lastName %></span>
+        <span>
+          <%= profile.firstName %>
+          <%= profile.lastName %>
+          <%= profile.city%>
+          <%= profile.state%>
+        </span>
+        <span class="icons">
+          <a href="mailto:<%= profile.email%>"><i class="fas fa-envelope-square"></i></a>
+          <a href="<%= profile.twitter%>"><i class="fab fa-twitter"></i></a>
+          <a href="<%= profile.instagram%>"><i class="fab fa-instagram"></i></a>
+          <a href="<%= profile.web%>"><i class="fas fa-globe"></i></a>
+        </span>
       </section>
       <section class="container">
         <% for(var i=0; i<work.length; i++) {%>
         <section class="item">
           <img class="collection" src="<%= work[i].artWork %>" alt="">
-          <a href="/purchase/<%=work[i]._id%>">PURCHASE</a>
+          <%= work[i].size%>
+          <% if(work[i].purchased) {%>
+            <span>Sold!</span>
+          <%} else {%>
+            <a href="/purchase/<%=work[i]._id%>">PURCHASE</a>
+          <% } %>
         </section>
        <% } %>
       </section>
     </section>
     <footer>
-      <p><a href="#">Join</a> our community of Artist</p>
+      <section>
+        <p><a href="#">Join</a> our community of Artist</p>
+      </section>
     </footer>
     <script type="text/javascript" src="../js/description.js"></script>
     <script type="text/javascript" src="../js/artist.js"></script>

@@ -17,7 +17,7 @@
 
 section{
   width: 50%;
-  height: 675px;
+  height: 760px;
   float:left;
   text-align: center;
 }
@@ -52,8 +52,8 @@ li h3 a:hover{
 .first{
   text-align: right;
 }
-.fa-chrome{
-    font-size: 100px;
+.landingImg{
+    width: 100px;
     color: white;
     outline-color: black;
 }

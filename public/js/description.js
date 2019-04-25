@@ -15,7 +15,7 @@ let target = document.getElementsByClassName("pic")
 // }
 
 
-Array.from(target).forEach( function(element){ element.addEventListener('click', function run(){
+Array.from(target).forEach( function(element){ element.addEventListener('click', function(){
 
       let picture = this.src
       let email = this.getAttribute("data-email")
@@ -29,19 +29,18 @@ Array.from(target).forEach( function(element){ element.addEventListener('click',
       //   document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
       // }
 
-      fetch('artist', {
-        method: 'get',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          'email': email
-        })
-      }).then(function (response) {
-        window.location.reload()
-    })
-    }
-  )
+    //   fetch('artist', {
+    //     method: 'get',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       'email': email
+    //     })
+    //   }).then(function (response) {
+    //     window.location.reload()
+    // })
+  })
 });
 
 let infoBtn = document.getElementsByClassName('box')

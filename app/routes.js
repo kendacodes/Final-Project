@@ -132,10 +132,10 @@ module.exports = function(app, passport, db, multer, ObjectId) {
       db.collection('creations').findOne({_id:ObjectId(req.params.work_id)},(err, creation) => {
         if (err) return console.log(err)
         console.log("from /purchase work:", creation);
+        console.log(creation)
         res.render('purchase.ejs', {
           user : req.user,
           creation: creation
-
       })
     })
   })
@@ -176,7 +176,7 @@ module.exports = function(app, passport, db, multer, ObjectId) {
 
   app.post('/creations', upload.single('artWork'), (req, res) => {
     console.log("THIS IS THE FILE", req.file);
-    db.collection('creations').save({email: req.user.local.email, price: req.body.price, caption: req.body.caption, artWork: "images/art/" + req.file.filename}, (err, result) => {
+    db.collection('creations').save({email: req.user.local.email, price: req.body.price, size: req.body.size, caption: req.body.caption, artWork: "images/art/" + req.file.filename}, (err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
       res.redirect('profile')
@@ -184,31 +184,19 @@ module.exports = function(app, passport, db, multer, ObjectId) {
   })
 
   //=============Payment Routes=========================
-  app.post("/charge", (req, res) => {
-    // console.log(creationId);
-    // db.collection('info').findOne({_id:ObjectId(req.body.creationId)},(err, creation) => {
-    //   let amount = creation.price;
-    //   if (! amount ){
-    //     amount = 250
-    //   }
-    //   stripe.customers.create({
-    //     email: req.body.email,
-    //     card: req.body.id
-    //   })
-    //   .then(customer =>
-    //     stripe.charges.create({
-    //       amount,
-    //       description: req.body.artWork,
-    //       currency: "usd",
-    //       customer: customer.id
-    //     }))
-    //     .then(charge => res.send(charge))
-    //     .catch(err => {
-    //       console.log("Error:", err);
-    //       res.status(500).send({error: "Purchase Failed"});
-    //     });
-    //   });
-    res.redirect('/gallery')
+  app.put("/charge", (req, res) => {
+    console.log('charged for artwork')
+    console.log(req.body)
+    db.collection('creations').findOneAndUpdate({_id: ObjectId(req.body._id)}, {
+        $set: {
+          purchased: true
+        }
+      }, {
+        sort: {_id: -1},
+        upsert: true
+      }, (err, result) => {
+        res.redirect('/gallery')
+      })
     })
 
     //===============================================================

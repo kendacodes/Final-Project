@@ -9,13 +9,38 @@
     <script src="https://checkout.stripe.com/checkout.js"></script>
   </head>
   <body>
-    <h1>VIA Studios Checkout powered by Stripe</h1>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">HOME</a>
+          </li>
+          <li>
+            <a href="/gallery">GALLERY</a>
+          </li>
+          <li>
+            <a href="/profile">PROFILE</a>
+          </li>
+          <li>
+            <i class="fas fa-bars"></i>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="main">
 
-    <div class="mainImg"id="shop">
-      <img class="collection" src="/<%= creation.artWork %>" alt="">
-      <span>$<%= creation.price%></span>
-      <button id="buttonCheckout">Checkout</button>
-    </div>
+      <div class="mainImg"id="shop">
+        <img class="collection" src="/<%= creation.artWork %>" alt="">
+        <span>$<%= creation.price%></span>
+        <input hidden value=<%= creation._id %> id="artworkID">
+        <button id="buttonCheckout">Checkout</button>
+      </div>
+    </section>
+    <footer>
+      <section>
+        <p><a href="/signup">Join</a> our community of Artist</p>
+      </section>
+    </footer>
   </body>
 
 <script type="text/javascript" src="../js/purchase.js"></script>
